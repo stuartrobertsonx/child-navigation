@@ -253,23 +253,23 @@ function list_child_pages_shortcode($atts) {
         'order' => 'ASC',
     ));
 
-    $output = '<div class="custom-page-title">';
+    $output = '<ul class="child-pages-list">';
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
 
-            $output .= '<div class="child-page">';
+            $output .= '<li class="child-page">';
             $output .= '<a href="' . esc_url(get_permalink()) . '">';
             $output .= esc_html(get_the_title());
             $output .= '</a>';
-            $output .= '</div>';
+            $output .= '</li>';
         }
     } else {
-        $output .= '<div>No child pages found.</div>';
+            $output .= '<li>No child pages found.</li>';
     }
 
-    $output .= '</div>';
+    $output .= '</ul>';
 
     wp_reset_postdata();
 
