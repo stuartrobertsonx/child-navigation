@@ -259,7 +259,7 @@ function list_child_pages_shortcode($atts) {
         while ($query->have_posts()) {
             $query->the_post();
 
-            $output .= '<li class="child-page">';
+            $output .= '<li>';
             $output .= '<a href="' . esc_url(get_permalink()) . '">';
             $output .= esc_html(get_the_title());
             $output .= '</a>';
